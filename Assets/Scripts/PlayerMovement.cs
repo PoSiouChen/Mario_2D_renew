@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private Camera mainCamera;
     private Rigidbody2D rb2d;
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public bool isGrounded { get; private set; }
     public bool isJumping { get; private set; }
+    public bool isRunning { get; private set; }
 
     private void Awake()
     {
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
     private void HorizontalMove()
     {
         inputAxis = Input.GetAxis("Horizontal");
+        if(inputAxis != 0){
+            isRunning = true;
+        } else{
+            isRunning = false;
+        }
         rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, inputAxis * moveSpeed, Time.deltaTime * 15), rb2d.velocity.y);
     }
 

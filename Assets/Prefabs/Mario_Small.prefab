@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 220666470351481674}
   - component: {fileID: 7587394987257534461}
   - component: {fileID: 1090947735743500873}
-  - component: {fileID: 6215975379088443550}
   - component: {fileID: 8410736115789047568}
   m_Layer: 3
   m_Name: Mario_Small
@@ -192,26 +191,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6215975379088443550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3455004188060269883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7a16919f3a53a42993305f16b0cdbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  jumpForce: 17
-  gravityScale: 3
-  groundCheckDistance: 1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1
-  headCheckPoint: {fileID: 0}
 --- !u!70 &8410736115789047568
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
