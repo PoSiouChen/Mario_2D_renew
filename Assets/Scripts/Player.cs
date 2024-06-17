@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public float groundCheckDistance = 1f; 
     public LayerMask groundMask; 
 
-
     public bool isGrounded { get; private set; }
     public bool isJumping { get; private set; }
 
@@ -78,4 +77,5 @@ public class Player : MonoBehaviour
 
         rb2d.position = position;
     }
+    
 }
