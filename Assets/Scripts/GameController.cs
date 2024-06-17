@@ -18,5 +18,13 @@ public class GameController : MonoBehaviour
         uiCanvas.SetActive(false);
         gameElements.SetActive(true);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.ExitPlaymode();
+        #endif
+    }
 }
 
