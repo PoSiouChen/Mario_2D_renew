@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         rb2d.gravityScale = gravityScale;
         mainCamera = Camera.main;
 
-        // Add Event Listeners for UI Buttons
         AddEventTrigger(leftButton, OnLeftButtonDown, EventTriggerType.PointerDown);
         AddEventTrigger(leftButton, OnLeftButtonUp, EventTriggerType.PointerUp);
         AddEventTrigger(rightButton, OnRightButtonDown, EventTriggerType.PointerDown);
@@ -48,8 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HorizontalMove();
         isGrounded = CheckGrounded();
-        if (isGrounded && (Input.GetButtonDown("Jump") || isJumpPressed))
-        {
+        if (isGrounded && (Input.GetButtonDown("Jump") || isJumpPressed)){
             Jump();
         }
     }
@@ -63,24 +61,23 @@ public class PlayerMovement : MonoBehaviour
     {
         inputAxis = Input.GetAxis("Horizontal");
 
-        if (isLeftPressed)
-        {
+        if (isLeftPressed){
             inputAxis = -1;
-        }
-        else if (isRightPressed)
-        {
+        } else if (isRightPressed){
             inputAxis = 1;
         }
 
-        if (inputAxis != 0)
-        {
+        if (inputAxis != 0){
             isRunning = true;
-        }
-        else
-        {
+        } else{
             isRunning = false;
         }
 
+        if(inputAxis > 0){
+            transform.eulerAngles = Vector3.zero;
+        } else if(inputAxis < 0){
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
         rb2d.velocity = new Vector2(Mathf.Lerp(rb2d.velocity.x, inputAxis * moveSpeed, Time.deltaTime * 15), rb2d.velocity.y);
     }
 
@@ -98,8 +95,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, direction, groundCheckDistance, groundMask);
         Debug.DrawRay(position, direction * groundCheckDistance, Color.red, 0.1f);
 
-        if (hit.collider != null)
-        {
+        if (hit.collider != null){
             return true;
         }
         return false;
